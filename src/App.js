@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/dashboard";
+import PendingCandidate from "./pages/pendingCandidate";
+import RejectedCandidate from "./pages/rejectedCandidate";
+import SelectedCandidate from "./pages/selectedCandidate";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="w-full p-10">
+        <h1 className=" w-full text-center">Candidate Management</h1>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/pending" element={<PendingCandidate />} />
+          <Route path="/selected" element={<SelectedCandidate />} />
+          <Route path="/rejected" element={<RejectedCandidate />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
